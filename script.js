@@ -78,7 +78,7 @@ var arr=[
    
 ];
 
-document.onclick=function(){
+document.getElementsByTagName('button')[0].onclick=function(){
 
   var fn=arr.shift();
   fn && fn.call(); 
