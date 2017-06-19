@@ -2,8 +2,9 @@ var wrap = document.createElement('div');
 wrap.className='wrap';
 document.body.appendChild(wrap);
 
-var head, body, chest, belly, foot;
- 
+var head, body, chest, belly, foot,eye1,eye2;
+var num=0;
+var timer = null;
 var arr=[
   function(){  
      head = document.createElement('div');
@@ -13,12 +14,12 @@ var arr=[
   },
   function(){
     
-    var eye1=document.createElement('div');
+    eye1=document.createElement('div');
     eye1.className='eye1';
     head.appendChild(eye1);
   },
   function(){
-    var eye2=document.createElement('div');
+    eye2=document.createElement('div');
     eye2.className='eye2';
     head.appendChild(eye2);
   },
@@ -79,11 +80,26 @@ var arr=[
 ];
 
 document.getElementsByTagName('button')[0].onclick=function(){
-
   var fn=arr.shift();
   fn && fn.call(); 
   if(fn===undefined){
-    alert("大白已经画好啦~")
+    alert("hello Hiro~");
+    clearTimeout(timer);
+    move();
+
   }
+ 
 }
+function move(){
+  var x = num*9;
+  num=num+10;
+  if(num>10){
+    num=0;
+  }
+  eye1.style.transform = 'rotateX('+ x +'deg)';
+  eye2.style.transform = 'rotateX('+ x +'deg)';
+  timer = setTimeout(move,1000);
+}
+
+
 

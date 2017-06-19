@@ -27,6 +27,7 @@
             border-radius: 50%;
             position: absolute;
             top: 20px;
+            transition: .3s;
            
         }
         .eye1{
